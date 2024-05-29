@@ -23,7 +23,7 @@ export default {
 
 <template>
   <!-- TEMPLATE html-->
-  <div class="container d-flex flex-wrap">
+  <div class="container d-flex flex-wrap justify-content-between">
     <FilmCard v-for="film, index in store.filmsDetails" :film="film" :index="index" />
   </div>
 </template>

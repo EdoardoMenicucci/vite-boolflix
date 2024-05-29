@@ -46,8 +46,9 @@ export default {
         .then((response) => {
           // console.log(response.data.results);
           let risultato = response.data.results
-          this.store.filmsDetails.push(risultato)
+          // this.store.filmsDetails.push(risultato)
           // console.log(this.store.filmsDetails);
+          this.store.filmsDetails = risultato
         })
     }
   },

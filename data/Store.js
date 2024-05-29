@@ -4,7 +4,7 @@ let myData = reactive({
     names: ['pippo'],
     modelUser: '',
     stableSearch: '',
-    filmsDetails:[],
+    filmsDetails:'',
 })
 
 export default myData

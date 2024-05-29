@@ -25,8 +25,8 @@ export default {
 
 <template>
   <!-- TEMPLATE html-->
-  <div class="box-film">
-    <div>{{ film[0].title }}</div>
+  <div class="box-film mb-5">
+    <div>{{ film.title }}</div>
   </div>
 </template>
 
