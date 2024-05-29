@@ -2,7 +2,7 @@ import { reactive } from "vue";
 
 let myData = reactive({
     names: ['pippo'],
-    modelUser: '',
+    modelUser: 'ritorno al futuro',
     stableSearch: '',
     filmsDetails:'',
 })
