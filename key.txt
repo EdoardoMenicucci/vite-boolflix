@@ -1,0 +1,6 @@
+key API
+
+47afd2a401879eea8fc6255fd3c8bf7b
+
+https://developer.themoviedb.org/reference/search-movie
+
