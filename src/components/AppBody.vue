@@ -24,7 +24,8 @@ export default {
 <template>
   <!-- TEMPLATE html-->
   <div class="container mt-3 main-color">
-    <h2 v-if="store.topRated == true">Top Rated Italia:</h2>
+    <h2 v-if="store.topRated == true && store.type == 'top_rated'">Top Rated:</h2>
+    <h2 v-else-if="store.topRated == true && store.type == 'popular'">Popolari:</h2>
     <h2 v-else="store.topRated == false">La Tua Ricerca:</h2>
   </div>
   <div class="sx" @click="store.previousPage()"><i class="fa-solid fa-chevron-left fa-3x"></i></div>

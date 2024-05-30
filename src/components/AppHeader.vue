@@ -29,7 +29,10 @@ export default {
 
         </div>
         <div>
-          <button class="btn btn-danger" @click="store.goToTopRated()">TOP RATED FILMS</button>
+          <button class="btn btn-danger" @click="store.goToTopRated()">
+            <span v-if="store.type == 'top_rated'">POPULAR
+              FILMS</span><span v-else-if="store.type == 'popular'">TOP RATED FILMS</span>
+          </button>
         </div>
         <div class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"

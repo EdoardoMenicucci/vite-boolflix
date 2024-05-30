@@ -11,6 +11,8 @@ let myData = reactive({
     numberPage: 1,
     //TENGO TRACCIA SE IN TOP RATED (A INIZIO PAGINA SI!)
     topRated: true,
+    // TOP / POPULAR
+    type: 'top_rated',
     // INSERISCO LA FUNZIONE DIRETTAMENTE NELLO STORE COSI CHE POSSA ESSERE RICHIAMATA DA TUTTI I COMPONENTI
     getData() {
         // CREO UNA VARIABILE STABILE E NON REACTIVE COME IL V-MODEL
@@ -54,7 +56,7 @@ let myData = reactive({
         }
         const options = {
           method: 'GET',
-          url: 'https://api.themoviedb.org/3/movie/top_rated?language=it-IT&page='+this.numberPage,
+          url: 'https://api.themoviedb.org/3/movie/'+this.type+'?language=it-IT&page='+this.numberPage,
           headers: {
             accept: 'application/json',
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0N2FmZDJhNDAxODc5ZWVhOGZjNjI1NWZkM2M4YmY3YiIsInN1YiI6IjY2NTcxZTU2MWE4ZjExZDYzM2Y4ZjdkOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xY2xUBVZ5Dda3gSmSCfG_Yld24zol4JJAwNNGA_OQKY'
@@ -82,6 +84,12 @@ let myData = reactive({
       // SEZIONE INPUT BOTTONI
       //VAI ALLA TOP RATED ITALIA
       goToTopRated(){
+        //CAMBIO TRA TOP RATED E POPULAR A OGNI CLICK SUL BOTTONE
+        if (this.type == 'top_rated') {
+          this.type = 'popular'
+        } else {
+          this.type = 'top_rated'
+        }
         this.phpRequestTop();
       },
       //PAGINA SUCCESSIVA
