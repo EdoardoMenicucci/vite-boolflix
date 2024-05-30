@@ -6,6 +6,7 @@ let myData = reactive({
     stableSearch: '',
     filmsDetails:'',
     posterBase: 'http://image.tmdb.org/t/p/w342',
+    numberPage: 1,
     // INSERISCO LA FUNZIONE DIRETTAMENTE NELLO STORE COSI CHE POSSA ESSERE RICHIAMATA DA TUTTI I COMPONENTI
     getData() {
         // CREO UNA VARIABILE STABILE E NON REACTIVE COME IL V-MODEL
@@ -21,7 +22,7 @@ let myData = reactive({
         // OPZIONE NECESSARIA PER AVER ACCESSO AL SERVER
         const options = {
           method: 'GET',
-          url: 'https://api.themoviedb.org/3/search/movie?query=' + this.stableSearch + '&include_adult=false&language=it-IT&page=1',
+          url: 'https://api.themoviedb.org/3/search/movie?query=' + this.stableSearch + '&include_adult=false&language=it-IT&page='+this.numberPage,
           headers: {
             accept: 'application/json',
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0N2FmZDJhNDAxODc5ZWVhOGZjNjI1NWZkM2M4YmY3YiIsInN1YiI6IjY2NTcxZTU2MWE4ZjExZDYzM2Y4ZjdkOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xY2xUBVZ5Dda3gSmSCfG_Yld24zol4JJAwNNGA_OQKY'
@@ -47,9 +48,26 @@ let myData = reactive({
         const truncated = text.substr(0, maxLength);
         return truncated.substr(0, truncated.lastIndexOf(" ")) + "...";
       },
-      flags(film){
-        film.original_language + ''
-      }
+      nextPage(){
+        if (this.filmsDetails.length <= 20) {
+          console.log('non ce altro!');
+        } else {
+          this.numberPage += 1;
+          this.phpRequest()
+        }
+
+      },
+      previousPage(){
+        if (this.numberPage = 1) {
+          this.numberPage = 1
+          console.log('sei nella prima pagina!');
+        } else {
+          this.numberPage -= 1
+          this.phpRequest()
+        }
+        
+
+      },
 })
 
 export default myData
