@@ -21,14 +21,9 @@ export default {
   },
   methods: {
     // debug() {
-    //   // console.log(this.store.names); //metodo per reactive corretto
-    //   console.log(this.store.filmsDetails);
-    //   // console.log(this.store.stableSearch);
-    //   this.store.phpRequestTop();
     // },
   },
   mounted() {
-
     this.store.phpRequestTop();
     // this.debug();
   },

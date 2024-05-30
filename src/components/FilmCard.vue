@@ -32,11 +32,19 @@ export default {
     <div class="pb-1"><span class="text-heavy">Breve descrizione: </span>{{ store.truncateText(film.overview, 50) }}
     </div>
     <div class="pb-1"><span class="text-heavy">Voto: </span>{{ film.vote_average.toFixed(1) }} / 10</div>
+
     <div class="d-flex">
       <div class="pb-1"><span class="text-heavy">Lingua originale: </span>
       </div>
       <div class="bandiera ms-2" :class="'fi-' + film.original_language"></div>
       <div class="ms-2">{{ film.original_language }}</div>
+    </div>
+    <div class="stelle position-absolute">
+      <span v-if="(film.vote_average / 2).toFixed(1) >= 0.5"><i class="fa-solid fa-star"></i></span>
+      <span v-if="(film.vote_average / 2).toFixed(1) >= 1.5"><i class="fa-solid fa-star"></i></span>
+      <span v-if="(film.vote_average / 2).toFixed(1) >= 2.5"><i class="fa-solid fa-star"></i></span>
+      <span v-if="(film.vote_average / 2).toFixed(1) >= 3.5"><i class="fa-solid fa-star"></i></span>
+      <span v-if="(film.vote_average / 2).toFixed(1) >= 4.5"><i class="fa-solid fa-star"></i></span>
     </div>
     <!-- <div class="pb-2">{{ film.overview }}</div> -->
     <img class="position-absolute" :src="store.posterBase + film.poster_path" alt="">
@@ -77,5 +85,11 @@ img {
   height: 1.25rem;
   width: 1.6rem;
   background: contain;
+}
+
+.stelle {
+  color: #ffd43b;
+  bottom: 10px;
+  left: 10px;
 }
 </style>

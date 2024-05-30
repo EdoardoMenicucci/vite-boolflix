@@ -6,6 +6,7 @@ let myData = reactive({
     filmsDetails:'',
     // Indirizzo base per prendere i poster
     posterBase: 'http://image.tmdb.org/t/p/w342',
+    // TENGO TRACCIA DELLE 
     numberPage: 1,
     //TENGO TRACCIA SE IN TOP RATED (A INIZIO PAGINA SI!)
     topRated: true,
@@ -69,11 +70,12 @@ let myData = reactive({
         return truncated.substr(0, truncated.lastIndexOf(" ")) + "...";
       },
       // SEZIONE INPUT BOTTONI
+      //VAI ALLA TOP RATED
       goToTopRated(){
         this.topRated = true
         this.phpRequestTop();
       },
-
+      //PAGINA SUCCESSIVA
       nextPage(){
         if (this.topRated == true) {
             this.numberPage += 1;
@@ -87,6 +89,7 @@ let myData = reactive({
           }
         }       
       },
+      //PAGINA PRECEDENTE
       previousPage(){
         if (this.topRated == true) {
           if (this.numberPage == 1) {
