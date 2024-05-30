@@ -68,6 +68,12 @@ let myData = reactive({
         const truncated = text.substr(0, maxLength);
         return truncated.substr(0, truncated.lastIndexOf(" ")) + "...";
       },
+      // SEZIONE INPUT BOTTONI
+      goToTopRated(){
+        this.topRated = true
+        this.phpRequestTop();
+      },
+
       nextPage(){
         if (this.topRated == true) {
             this.numberPage += 1;

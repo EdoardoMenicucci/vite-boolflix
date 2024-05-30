@@ -26,6 +26,10 @@ export default {
       <header class="d-flex justify-content-between align-items-center">
         <div class="logo main-color">
           BOOLFLIX
+
+        </div>
+        <div>
+          <button class="btn btn-danger" @click="store.goToTopRated()">TOP RATED FILMS</button>
         </div>
         <div class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"

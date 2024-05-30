@@ -54,7 +54,7 @@ export default {
   height: 20rem;
   background-color: rgb(16, 16, 15);
   color: white;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .text-heavy {
@@ -77,6 +77,5 @@ img {
   height: 1.25rem;
   width: 1.6rem;
   background: contain;
-  /* background-color: rgb(255, 255, 255); */
 }
 </style>
