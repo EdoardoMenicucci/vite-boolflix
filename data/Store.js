@@ -5,6 +5,7 @@ let myData = reactive({
     modelUser: 'ritorno al futuro',
     stableSearch: '',
     filmsDetails:'',
+    posterBase: 'http://image.tmdb.org/t/p/w342',
     // INSERISCO LA FUNZIONE DIRETTAMENTE NELLO STORE COSI CHE POSSA ESSERE RICHIAMATA DA TUTTI I COMPONENTI
     getData() {
         // CREO UNA VARIABILE STABILE E NON REACTIVE COME IL V-MODEL
@@ -12,8 +13,11 @@ let myData = reactive({
         // GLI SPAZI NEL SERVER SONO INTERPRETATI CON %20 SPLITTO LA RICERCA DELL UTENTE E UNISCO L'ARRAY GENERATO CON %20
         let userSearchPhp = userSearch.split(' ').join('%20')
         this.stableSearch = userSearchPhp
-        // console.log(this.stableSearch);
-  
+        //DOPO AVER PRESO I DATI DALL'UTENTE FACCIO LA RICHIESTA AL SERVER
+        this.phpRequest();
+      },
+      // RICHIESTA AXIOS
+      phpRequest(){
         // OPZIONE NECESSARIA PER AVER ACCESSO AL SERVER
         const options = {
           method: 'GET',
@@ -32,8 +36,20 @@ let myData = reactive({
             // this.filmsDetails.push(risultato)
             // console.log(this.filmsDetails);
             this.filmsDetails = risultato
+            console.log(this.filmsDetails);
           })
       },
+      // Funzione per troncare le descrizioni troppo lunghe
+      truncateText(text, maxLength) {
+        if (text.length <= maxLength) {
+          return text;
+        }
+        const truncated = text.substr(0, maxLength);
+        return truncated.substr(0, truncated.lastIndexOf(" ")) + "...";
+      },
+      flags(film){
+        film.original_language + ''
+      }
 })
 
 export default myData

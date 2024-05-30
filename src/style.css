@@ -9,3 +9,14 @@ body {
   background-color: #222;
   color: white;
 }
+
+
+/* BANDIERE IMPORTATE A MANO PERCHE NOME DIVERSO DALLA REPOSITORI IN CDN */
+.fi-en{
+  background-image: url(https://raw.githubusercontent.com/lipis/flag-icons/5667d75be0c0396f29fdc73e2b2e341d0e702843/flags/4x3/gb.svg)
+}
+
+.fi-ja{
+  background-image: url(https://raw.githubusercontent.com/lipis/flag-icons/5667d75be0c0396f29fdc73e2b2e341d0e702843/flags/4x3/jp.svg);
+}
+

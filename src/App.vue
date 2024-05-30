@@ -23,7 +23,7 @@ export default {
     debug() {
       // console.log(this.store.names); //metodo per reactive corretto
       console.log(this.store.filmsDetails);
-      console.log(this.store.stableSearch);
+      // console.log(this.store.stableSearch);
     },
   },
   mounted() {

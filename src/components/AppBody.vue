@@ -31,4 +31,7 @@ export default {
 <!-- CON SCOPED DICHIARO CSS SOLO AL ATTUALE COMPONENTE/file -->
 <style scoped>
 /* STILE */
+div {
+  align-items: flex-start;
+}
 </style>

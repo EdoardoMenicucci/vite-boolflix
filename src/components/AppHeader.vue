@@ -49,7 +49,7 @@ header {
 }
 
 .red {
-  color: rgb(135, 0, 0);
+  color: rgb(176, 0, 0);
   font-size: 3rem;
   font-weight: 700;
 }

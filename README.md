@@ -7,3 +7,5 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 - [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
 
 --TUTTI I COMPONENTI CREATI SONO COMODI COSI DA POTER ESSERE RICHIAMATI IN ALTRI LAVORI/APPLICAZIONI
+
+--NON TUTTE LE BANDIERE SONO VISIBILI PERCHE HANNO UN NOME DIFFERENTE DALL'LINGUAGGIO
