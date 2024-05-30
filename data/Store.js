@@ -6,6 +6,7 @@ let myData = reactive({
     filmsDetails:'',
     // Indirizzo base per prendere i poster
     posterBase: 'http://image.tmdb.org/t/p/w342',
+    urlSearch: '',
     // TENGO TRACCIA DELLE 
     numberPage: 1,
     //TENGO TRACCIA SE IN TOP RATED (A INIZIO PAGINA SI!)
@@ -20,8 +21,12 @@ let myData = reactive({
         //DOPO AVER PRESO I DATI DALL'UTENTE FACCIO LA RICHIESTA AL SERVER
         this.phpRequest();
       },
-      // RICHIESTA AXIOS
+      // RICHIESTA AXIOS SEARCH
       phpRequest(){
+        // SE L'UTENTE AVEVA SCROLLATO PAGINE NEI TOP RATED LO RIPORTO ALLA PRIMA PAGINA QUANDO FA UNA RICERCA PER NOME
+        if (this.topRated == true) {
+          this.numberPage = 1
+        }
         // OPZIONE NECESSARIA PER AVER ACCESSO AL SERVER
         const options = {
           method: 'GET',
@@ -43,6 +48,10 @@ let myData = reactive({
       },
       // RICHIESTA AXIOS TOP RATED
       phpRequestTop(){
+        // IDENTICO A SOPRA
+        if (this.topRated == false) {
+          this.numberPage = 1
+        }
         const options = {
           method: 'GET',
           url: 'https://api.themoviedb.org/3/movie/top_rated?language=it-IT&page='+this.numberPage,
@@ -51,7 +60,6 @@ let myData = reactive({
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0N2FmZDJhNDAxODc5ZWVhOGZjNjI1NWZkM2M4YmY3YiIsInN1YiI6IjY2NTcxZTU2MWE4ZjExZDYzM2Y4ZjdkOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xY2xUBVZ5Dda3gSmSCfG_Yld24zol4JJAwNNGA_OQKY'
           }
         };
-        
         axios
           .request(options)
           .then((response)=> {
@@ -61,6 +69,8 @@ let myData = reactive({
             console.log(this.filmsDetails);
           })
       },
+
+
       // Funzione per troncare le descrizioni troppo lunghe
       truncateText(text, maxLength) {
         if (text.length <= maxLength) {
@@ -70,9 +80,8 @@ let myData = reactive({
         return truncated.substr(0, truncated.lastIndexOf(" ")) + "...";
       },
       // SEZIONE INPUT BOTTONI
-      //VAI ALLA TOP RATED
+      //VAI ALLA TOP RATED ITALIA
       goToTopRated(){
-        this.topRated = true
         this.phpRequestTop();
       },
       //PAGINA SUCCESSIVA
@@ -105,7 +114,7 @@ let myData = reactive({
             console.log('sei nella prima pagina!');
           } else {
             this.numberPage -= 1
-            this.phpRequestTop()
+            this.phpRequest()
           }
         }
       },

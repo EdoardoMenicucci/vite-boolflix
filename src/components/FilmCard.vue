@@ -28,8 +28,9 @@ export default {
   <div class="box-film mb-5 p-3 position-relative">
     <div class="pb-1"><span class="text-heavy">Titolo: </span>{{ film.title }}</div>
     <div class="pb-1"><span class="text-heavy">Titolo originale: </span>{{ film.original_title }}</div>
-    <!-- <div class="pb-1"><span class="text-heavy">Breve descrizione: </span>{{ film.overview.split(',')[0] }} -->
-    <div class="pb-1"><span class="text-heavy">Breve descrizione: </span>{{ store.truncateText(film.overview, 50) }}
+    <!-- IN ALCUNI CASI NON CE LA DESCRIZIONE QUINDI NON MOSTRO DESCRIZIONE: -->
+    <div class="pb-1" v-if="film.overview != undefined"><span class="text-heavy">Breve descrizione: </span>{{
+      store.truncateText(film.overview, 50) }}
     </div>
     <div class="pb-1"><span class="text-heavy">Voto: </span>{{ film.vote_average.toFixed(1) }} / 10</div>
 
