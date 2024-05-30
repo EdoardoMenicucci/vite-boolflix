@@ -5,6 +5,7 @@ let myData = reactive({
     modelUser: 'ritorno al futuro',
     stableSearch: '',
     filmsDetails:'',
+    // Indirizzo base per prendere i poster
     posterBase: 'http://image.tmdb.org/t/p/w342',
     numberPage: 1,
     // INSERISCO LA FUNZIONE DIRETTAMENTE NELLO STORE COSI CHE POSSA ESSERE RICHIAMATA DA TUTTI I COMPONENTI
@@ -32,10 +33,7 @@ let myData = reactive({
         axios
           .request(options)
           .then((response) => {
-            // console.log(response.data.results);
             let risultato = response.data.results
-            // this.filmsDetails.push(risultato)
-            // console.log(this.filmsDetails);
             this.filmsDetails = risultato
             console.log(this.filmsDetails);
           })

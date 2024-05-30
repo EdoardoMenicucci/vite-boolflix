@@ -57,6 +57,6 @@ div {
 }
 
 i {
-  color: rgb(147, 0, 0);
+  color: #E50914;
 }
 </style>

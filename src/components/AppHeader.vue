@@ -45,12 +45,16 @@ header {
 }
 
 .headercolor {
-  background-color: grey;
+  background-color: #3c3d40;
 }
 
 .red {
-  color: rgb(176, 0, 0);
+  color: #E50914;
   font-size: 3rem;
   font-weight: 700;
+}
+
+.btn {
+  background-color: #E50914 !important;
 }
 </style>
