@@ -31,7 +31,8 @@ export default {
         <div>
           <button class="btn btn-danger" @click="store.goToTopRated()">
             <span v-if="store.type == 'top_rated'">POPULAR
-              FILMS</span><span v-else-if="store.type == 'popular'">TOP RATED FILMS</span>
+              FILMS</span><span v-else-if="store.type == 'popular'">NOW PLAYING</span>
+            <span v-else-if="store.type == 'now_playing'">TOP RATED FILMS</span>
           </button>
         </div>
         <div class="d-flex">

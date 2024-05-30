@@ -84,10 +84,14 @@ let myData = reactive({
       // SEZIONE INPUT BOTTONI
       //VAI ALLA TOP RATED ITALIA
       goToTopRated(){
-        //CAMBIO TRA TOP RATED E POPULAR A OGNI CLICK SUL BOTTONE
+        // A OGNI SWITCH PORTO LA RICERCA ALLA PRIMA PAGINA
+        this.numberPage = 1
+        //CAMBIO TRA TOP RATED E POPULAR E LIVE NOW A OGNI CLICK SUL BOTTONE
         if (this.type == 'top_rated') {
           this.type = 'popular'
-        } else {
+        } else  if (this.type == 'popular'){
+          this.type = 'now_playing'
+        } else if(this.type == 'now_playing'){
           this.type = 'top_rated'
         }
         this.phpRequestTop();
