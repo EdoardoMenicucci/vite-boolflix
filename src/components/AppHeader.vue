@@ -24,7 +24,7 @@ export default {
   <div class="headercolor">
     <div class="container">
       <header class="d-flex justify-content-between align-items-center">
-        <div class="red">
+        <div class="logo main-color">
           BOOLFLIX
         </div>
         <div class="d-flex">
@@ -48,8 +48,8 @@ header {
   background-color: #3c3d40;
 }
 
-.red {
-  color: #E50914;
+.logo {
+  /* color: #E50914; */
   font-size: 3rem;
   font-weight: 700;
 }

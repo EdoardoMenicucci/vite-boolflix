@@ -23,6 +23,9 @@ export default {
 
 <template>
   <!-- TEMPLATE html-->
+  <div class="container mt-3 main-color" v-if="store.topRated == true">
+    <h2>Top Rated Italia:</h2>
+  </div>
   <div class="sx" @click="store.previousPage()"><i class="fa-solid fa-chevron-left fa-3x"></i></div>
   <div class="dx" @click="store.nextPage()"><i class="fa-solid fa-chevron-right fa-3x"></i></div>
   <div class="container d-flex flex-wrap justify-content-between">

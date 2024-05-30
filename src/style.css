@@ -10,6 +10,10 @@ body {
   color: white;
 }
 
+.main-color{
+  color: #E50914;
+}
+
 
 /* BANDIERE IMPORTATE A MANO PERCHE NOME DIVERSO DALLA REPOSITORI IN CDN */
 .fi-en{

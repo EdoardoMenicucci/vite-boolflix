@@ -24,6 +24,7 @@ export default {
       // console.log(this.store.names); //metodo per reactive corretto
       console.log(this.store.filmsDetails);
       // console.log(this.store.stableSearch);
+      this.store.phpRequestTop();
     },
   },
   mounted() {
