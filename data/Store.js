@@ -27,9 +27,6 @@ let myData = reactive({
   // RICHIESTA AXIOS SEARCH
   phpRequest() {
     if (this.tvSeries == false) {
-      if (this.topRated == true || this.tvSeries == false) {
-        this.numberPage = 1;
-      }
       // OPZIONE NECESSARIA PER AVER ACCESSO AL SERVER
       const options = {
         method: "GET",
@@ -52,9 +49,6 @@ let myData = reactive({
         console.log(this.filmsDetails);
       });
     } else {
-      if (this.topRated == true || this.tvSeries == true) {
-        this.numberPage = 1;
-      }
       const options = {
         method: "GET",
         url:
@@ -116,6 +110,7 @@ let myData = reactive({
   },
   // SEZIONE INPUT BOTTONI
   goToSeries() {
+    this.numberPage = 1;
     this.topRated = false;
     if (this.tvSeries == true) {
       this.tvSeries = false;
