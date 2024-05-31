@@ -29,7 +29,8 @@ export default {
     <h2 v-else-if="store.topRated == true && store.type == 'now_playing'">Live:</h2>
     <h2 v-else="store.topRated == false">La Tua Ricerca:</h2>
   </div>
-  <div class="sx" @click="store.previousPage()"><i class="fa-solid fa-chevron-left fa-3x"></i></div>
+  <div class="sx" @click="store.previousPage()"><i class="fa-solid fa-chevron-left fa-3x"
+      :class="{ grey: store.numberPage == 1 }"></i></div>
   <div class="dx" @click="store.nextPage()"><i class="fa-solid fa-chevron-right fa-3x"></i></div>
   <div class="container d-flex flex-wrap justify-content-between">
     <FilmCard v-for="film, index in store.filmsDetails" :film="film" :index="index" />
@@ -68,5 +69,10 @@ h2 {
 
 i {
   color: #E50914;
+}
+
+/* AGGIUNGO LA CLASSE GRAY SE SONO NELLA 1' PAGINA */
+.grey {
+  color: grey;
 }
 </style>
