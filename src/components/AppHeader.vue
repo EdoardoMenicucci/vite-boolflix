@@ -34,6 +34,9 @@ export default {
               FILMS</span><span v-else-if="store.type == 'popular'">NOW PLAYING</span>
             <span v-else-if="store.type == 'now_playing'">TOP RATED FILMS</span>
           </button>
+          <button class="btn btn-danger ms-3" @click="store.goToSeries()"><span v-if="store.tvSeries == true">GO
+              SEARCH
+              FILMS</span><span v-if="store.tvSeries == false">GO SEARCH SERIES</span></button>
         </div>
         <div class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
