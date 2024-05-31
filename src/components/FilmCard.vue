@@ -79,7 +79,7 @@ img {
 }
 
 .box-film:hover img {
-  opacity: 0;
+  opacity: 0.15;
 }
 
 .bandiera {
